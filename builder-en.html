@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build Your Agent — AGENZA</title>
+<meta name="description" content="Build your own AI agent: pick agents, channels and dialect, and get a custom quote." />
+<link rel="icon" type="image/png" href="logo/AGENZA LOGO.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.builder-hero{padding:60px 0 10px;text-align:center}
+.builder-hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900}
+.builder-hero p{color:var(--muted);max-width:60ch;margin:10px auto 0}
+.progress{display:flex;gap:8px;justify-content:center;margin:22px 0 6px;flex-wrap:wrap}
+.progress span{font-size:.78rem;font-weight:800;padding:7px 16px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);transition:.25s}
+.progress span.on{background:linear-gradient(135deg,var(--cyan),var(--deep));color:#03161f;border-color:transparent}
+.builder-layout{display:grid;grid-template-columns:1fr 340px;gap:20px;padding:20px 0 70px;align-items:start}
+.b-main{background:rgba(8,18,28,.75);border:1px solid var(--stroke);border-radius:22px;padding:30px;backdrop-filter:blur(14px);min-height:480px}
+.b-step{display:none}
+.b-step.show{display:block;animation:msgIn .4s ease}
+.b-step h2{font-size:1.35rem;margin-bottom:4px}
+.b-step>p{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.opt{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);border-radius:16px;padding:18px;cursor:pointer;transition:.22s;text-align:start;font-family:inherit;color:var(--text)}
+.opt:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.opt.sel{border-color:var(--cyan);background:rgba(56,225,255,.1);box-shadow:0 0 25px rgba(56,225,255,.15)}
+.opt b{display:block;font-size:1rem}
+.opt small{color:var(--muted);font-size:.82rem}
+.opt .emo{font-size:1.6rem}
+.b-nav{display:flex;justify-content:space-between;margin-top:24px;gap:10px}
+.b-side{position:sticky;top:90px;background:linear-gradient(180deg,rgba(22,58,82,.9),rgba(10,24,36,.92));border:1px solid rgba(56,225,255,.4);border-radius:20px;padding:24px;box-shadow:0 0 50px rgba(56,225,255,.12)}
+.b-side h3{color:var(--cyan);font-size:1rem;margin-bottom:12px}
+.sum-row{display:flex;justify-content:space-between;font-size:.85rem;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.1);color:#cfe0ec}
+.sum-row b{color:#fff}
+.sum-total{margin:14px 0;padding:14px;border-radius:14px;background:rgba(0,0,0,.3);border:1px solid rgba(56,225,255,.3);text-align:center}
+.sum-total b{color:var(--cyan);font-size:1.15rem;display:block}
+.sum-total small{color:var(--muted);font-size:.78rem}
+.b-form label{font-size:.82rem;font-weight:700;display:flex;flex-direction:column;gap:6px;color:var(--silver);margin-bottom:10px}
+.b-form input,.b-form select,.b-form textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:11px 13px;color:#fff;font-family:inherit;font-size:.88rem;outline:none}
+.b-form input:focus,.b-form textarea:focus{border-color:var(--cyan)}
+.b-form select option{color:#000}
+.pay-note{font-size:.78rem;color:var(--muted);background:rgba(255,206,58,.07);border:1px dashed rgba(255,206,58,.4);border-radius:12px;padding:10px 14px;margin:12px 0;color:#ffe1a1}
+#sendBtn{width:100%}
+.ok-msg{display:none;text-align:center;padding:30px 10px}
+.ok-msg .big{font-size:3rem}
+@media(max-width:980px){.builder-layout{grid-template-columns:1fr}.b-side{position:static}.opt-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="loader-inner">
+    <img src="logo/AGENZA LOGO.png" alt="AGENZA" />
+    <div class="loader-bar"><span></span></div>
+    <p>Setting up the workshop…</p>
+  </div>
+</div>
+
+<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index-en.html" class="brand">
+      <img src="logo/AGENZA LOGO.png" alt="AGENZA logo" />
+      <span class="brand-text">AGENZA<small>AI AGENTS</small></span>
+    </a>
+    <nav class="links">
+      <a href="index-en.html">Home</a>
+      <a href="about-en.html">About</a>
+      <a href="builder-en.html">Build Your Agent</a>
+      <a href="policy-en.html">Policies</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="langToggle" title="التبديل للعربية">AR</button>
+      <a href="index-en.html#contact" class="btn btn-primary btn-sm">Book a Demo</a>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="about-en.html">About</a>
+    <a href="builder-en.html">Build Your Agent</a>
+    <a href="policy-en.html">Policies</a>
+    <a class="langToggle" href="builder.html">AR</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="builder-hero">
+    <div class="badge pulse-dot"><span class="dot"></span> The workshop — design your agent in a minute</div>
+    <h1>Build your own <span class="grad">AI Agent.</span></h1>
+    <p>Answer 5 quick steps, see your setup summary and suggested plan live, and send it to us on WhatsApp — we'll reply with a custom quote.</p>
+    <div class="progress" id="progress">
+      <span class="on" data-p="1">1 — Business type</span>
+      <span data-p="2">2 — Agents</span>
+      <span data-p="3">3 — Channels</span>
+      <span data-p="4">4 — Dialect &amp; tone</span>
+      <span data-p="5">5 — Your details</span>
+    </div>
+  </section>
+
+  <div class="builder-layout">
+    <div class="b-main">
+      <!-- STEP 1 -->
+      <div class="b-step show" data-step="1">
+        <h2>What's your business type?</h2>
+        <p>Pick the closest — so we tailor the agent to how you work.</p>
+        <div class="opt-grid" data-group="biz" data-single="1">
+          <button class="opt"><span class="emo">🛍️</span><b>Online store</b><small>Fashion / shoes / accessories / products</small></button>
+          <button class="opt"><span class="emo">🍔</span><b>Restaurant / Café</b><small>Menu / reservations / delivery</small></button>
+          <button class="opt"><span class="emo">💄</span><b>Clinic / Beauty center</b><small>Bookings / consultations / follow-up</small></button>
+          <button class="opt"><span class="emo">🏠</span><b>Real estate</b><small>Inquiries / viewings / lead follow-up</small></button>
+          <button class="opt"><span class="emo">📚</span><b>Education / Courses</b><small>Enrollment / inquiries / students</small></button>
+          <button class="opt"><span class="emo">🔧</span><b>Services / Other</b><small>Maintenance / shipping / general</small></button>
+        </div>
+        <div class="b-nav"><span></span><button class="btn btn-primary next">Next →</button></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="b-step" data-step="2">
+        <h2>Pick the agents you need</h2>
+        <p>You can pick one or more — most clients take all three.</p>
+        <div class="opt-grid" data-group="agents">
+          <button class="opt"><span class="emo">💬</span><b>Smart Reply Agent</b><small>Human-like replies on every platform</small></button>
+          <button class="opt"><span class="emo">📦</span><b>Order Confirmation Agent</b><small>WhatsApp / email confirmation + follow-up</small></button>
+          <button class="opt"><span class="emo">📊</span><b>Data Entry Agent</b><small>Instant logging to Google Sheets &amp; Excel</small></button>
+        </div>
+        <div class="b-nav"><button class="btn btn-ghost prev">← Back</button><button class="btn btn-primary next">Next →</button></div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="b-step" data-step="3">
+        <h2>Where are your customers?</h2>
+        <p>Select every channel you want the agent to cover.</p>
+        <div class="opt-grid" data-group="channels">
+          <button class="opt"><span class="emo">🟢</span><b>WhatsApp</b><small>Replies + order confirmation</small></button>
+          <button class="opt"><span class="emo">💙</span><b>Messenger</b><small>Instant page replies</small></button>
+          <button class="opt"><span class="emo">📸</span><b>Instagram</b><small>DMs + comments + stories</small></button>
+          <button class="opt"><span class="emo">👍</span><b>Facebook Comments</b><small>Public reply + move to DM</small></button>
+          <button class="opt"><span class="emo">🎵</span><b>TikTok</b><small>Comments and messages</small></button>
+          <button class="opt"><span class="emo">✉️</span><b>Email + Sheets</b><small>Email confirmation + auto logging</small></button>
+        </div>
+        <div class="b-nav"><button class="btn btn-ghost prev">← Back</button><button class="btn btn-primary next">Next →</button></div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="b-step" data-step="4">
+        <h2>How should the agent talk?</h2>
+        <p>Pick the main dialect + tone of voice.</p>
+        <div class="opt-grid" data-group="dialect" data-single="1">
+          <button class="opt"><span class="emo">🇪🇬</span><b>Egyptian</b><small>Natural slang like your team</small></button>
+          <button class="opt"><span class="emo">🇸🇦</span><b>Gulf</b><small>Saudi / Emirati dialect</small></button>
+          <button class="opt"><span class="emo">📖</span><b>Formal Arabic</b><small>Professional for companies &amp; clinics</small></button>
+          <button class="opt"><span class="emo">🌍</span><b>Mix</b><small>Auto-switches per customer</small></button>
+        </div>
+        <div style="height:14px"></div>
+        <div class="opt-grid" data-group="tone" data-single="1">
+          <button class="opt"><span class="emo">😄</span><b>Friendly &amp; fun</b><small>Emojis and light humor — stores &amp; restaurants</small></button>
+          <button class="opt"><span class="emo">🤝</span><b>Calm professional</b><small>Formal and reassuring — clinics &amp; real estate</small></button>
+        </div>
+        <div class="b-nav"><button class="btn btn-ghost prev">← Back</button><button class="btn btn-primary next">Next →</button></div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="b-step" data-step="5">
+        <div id="formWrap">
+          <h2>Done! Leave your details to get a quote</h2>
+          <p>We'll review your setup and send a custom quote on WhatsApp during working hours.</p>
+          <div class="b-form">
+            <label>Your name<input id="fName" placeholder="e.g. Ahmed Samir" /></label>
+            <label>WhatsApp number<input id="fPhone" placeholder="01xxxxxxxxx" /></label>
+            <label>Brand / page name<input id="fBrand" placeholder="e.g. Sneakers Store" /></label>
+            <label>Average daily messages
+              <select id="fVol"><option>Under 50</option><option>50 – 200</option><option>200 – 500</option><option>Over 500</option></select>
+            </label>
+            <label>Extra notes<textarea id="fNotes" rows="2" placeholder="e.g. struggling with confirmations and too many returns…"></textarea></label>
+          </div>
+          <div class="pay-note">💳 Our terms: <b>50% upfront</b> before work starts + <b>monthly fee at the start of each month</b> covering AI API &amp; maintenance — see <a href="policy-en.html" style="color:var(--cyan)">Policies</a>.</div>
+          <div class="b-nav"><button class="btn btn-ghost prev">← Back</button><button class="btn btn-primary glow" id="sendBtn">Send build request →</button></div>
+        </div>
+        <div class="ok-msg" id="okMsg">
+          <div class="big">🎉</div>
+          <h2>Your request is ready, champ!</h2>
+          <p style="color:var(--muted)">Hit the button to send it to us on WhatsApp and we'll reply with a quote.</p>
+          <a href="#" id="waLink" target="_blank" class="btn btn-primary glow" style="margin-top:14px">💬 Send via WhatsApp</a>
+          <div><button class="btn btn-ghost btn-sm" id="copyBtn" style="margin-top:10px">📋 Copy request summary</button></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="b-side">
+      <h3>// Your live setup summary 👇</h3>
+      <div class="sum-row"><span>Business</span><b id="sBiz">—</b></div>
+      <div class="sum-row"><span>Agents (<span id="sAgentsN">0</span>)</span><b id="sAgents">—</b></div>
+      <div class="sum-row"><span>Channels (<span id="sChannelsN">0</span>)</span><b id="sChannels">—</b></div>
+      <div class="sum-row"><span>Dialect</span><b id="sDialect">—</b></div>
+      <div class="sum-row"><span>Tone</span><b id="sTone">—</b></div>
+      <div class="sum-total">
+        <small>Suggested plan for you</small>
+        <b id="sPack">Pick an agent first</b>
+        <small id="sPackD">Final pricing in a custom quote based on your volume</small>
+      </div>
+      <div class="pay-note">50% upfront before start • monthly fee at month start (API + maintenance) • maintenance all month</div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="f-brand"><img src="logo/AGENZA LOGO.png" alt="AGENZA" /><p>AI agents that reply, confirm and log — like humans, but they never sleep.</p></div>
+    <div><b>Pages</b><a href="index-en.html">Home</a><a href="about-en.html">About</a><a href="builder-en.html">Build Your Agent</a><a href="policy-en.html">Policies</a></div>
+    <div><b>Agents</b><a href="index-en.html#services">Reply agent</a><a href="index-en.html#services">Orders agent</a><a href="index-en.html#services">Sheets agent</a></div>
+    <div><b>Contact</b><a href="mailto:hello@agenza.ai">hello@agenza.ai</a><a href="#">WhatsApp</a><a href="#">LinkedIn</a></div>
+  </div>
+  <div class="copy">© 2026 AGENZA — All rights reserved. Made with passion in Egypt. • <a href="policy-en.html" style="color:var(--cyan)">Privacy Policy &amp; Terms</a></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Builder logic (EN)
+let step = 1;
+const maxStep = 5;
+const state = { biz:null, agents:[], channels:[], dialect:null, tone:null };
+
+function go(n){
+  step = Math.max(1, Math.min(maxStep, n));
+  document.querySelectorAll('.b-step').forEach(s=>s.classList.toggle('show', +s.dataset.step===step));
+  document.querySelectorAll('#progress span').forEach(p=>p.classList.toggle('on', +p.dataset.p<=step));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>go(step+1)));
+document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>go(step-1)));
+document.querySelectorAll('#progress span').forEach(p=>p.addEventListener('click',()=>go(+p.dataset.p)));
+
+document.querySelectorAll('.opt-grid').forEach(grid=>{
+  const single = grid.dataset.single==='1';
+  grid.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>{
+    if(single){ grid.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel')); btn.classList.add('sel'); }
+    else btn.classList.toggle('sel');
+    collect(); updateSummary();
+  }));
+});
+
+function picked(group){
+  return [...document.querySelectorAll(`.opt-grid[data-group="${group}"] .opt.sel`)].map(b=>b.querySelector('b').textContent.trim());
+}
+function collect(){
+  const biz=picked('biz'), ag=picked('agents'), ch=picked('channels'), dl=picked('dialect'), tn=picked('tone');
+  state.biz=biz[0]||null; state.agents=ag; state.channels=ch; state.dialect=dl[0]||null; state.tone=tn[0]||null;
+}
+function pack(){
+  const n=state.agents.length, c=state.channels.length;
+  if(n===0) return ['Pick an agent first','Final pricing in a custom quote based on your volume'];
+  if(n>=3||c>=5) return ['Business plan','Multiple agents + all channels + custom links'];
+  if(n>=2||c>=3) return ['Growth plan ⭐','Best seller — 3 agents + all channels'];
+  return ['Launch plan','One agent + two channels — a perfect start'];
+}
+function updateSummary(){
+  document.getElementById('sBiz').textContent = state.biz||'—';
+  document.getElementById('sAgentsN').textContent = state.agents.length;
+  document.getElementById('sAgents').textContent = state.agents.join(', ')||'—';
+  document.getElementById('sChannelsN').textContent = state.channels.length;
+  document.getElementById('sChannels').textContent = state.channels.join(', ')||'—';
+  document.getElementById('sDialect').textContent = state.dialect||'—';
+  document.getElementById('sTone').textContent = state.tone||'—';
+  const [p,d]=pack();
+  document.getElementById('sPack').textContent=p;
+  document.getElementById('sPackD').textContent=d;
+}
+
+document.getElementById('sendBtn').addEventListener('click',()=>{
+  collect();
+  const name=document.getElementById('fName').value||'—';
+  const phone=document.getElementById('fPhone').value||'—';
+  const brand=document.getElementById('fBrand').value||'—';
+  const vol=document.getElementById('fVol').value;
+  const notes=document.getElementById('fNotes').value||'—';
+  const [p]=pack();
+  const msg =
+`New agent build request from AGENZA website 🤖%0A`+
+`———————————%0A`+
+`Name: ${encodeURIComponent(name)}%0A`+
+`Phone: ${encodeURIComponent(phone)}%0A`+
+`Brand: ${encodeURIComponent(brand)}%0A`+
+`Business: ${encodeURIComponent(state.biz||'—')}%0A`+
+`Agents: ${encodeURIComponent(state.agents.join(', ')||'—')}%0A`+
+`Channels: ${encodeURIComponent(state.channels.join(', ')||'—')}%0A`+
+`Dialect: ${encodeURIComponent(state.dialect||'—')}%0A`+
+`Tone: ${encodeURIComponent(state.tone||'—')}%0A`+
+`Volume: ${encodeURIComponent(vol)}%0A`+
+`Suggested plan: ${encodeURIComponent(p)}%0A`+
+`Notes: ${encodeURIComponent(notes)}`;
+  document.getElementById('waLink').href='https://api.whatsapp.com/send?text='+msg;
+  document.getElementById('waLink').dataset.raw = decodeURIComponent(msg.replaceAll('%0A','\n'));
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('okMsg').style.display='block';
+});
+document.getElementById('copyBtn').addEventListener('click',e=>{
+  const t=document.getElementById('waLink').dataset.raw||'';
+  navigator.clipboard?.writeText(t);
+  e.target.textContent='✔ Copied!';
+});
+updateSummary();
+</script>
+</body>
+</html>
