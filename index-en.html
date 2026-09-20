@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AGENZA — AI Agents That Reply Like Humans</title>
+<meta name="description" content="AGENZA builds AI agents that reply to your customers on every channel and comment like real humans, confirm orders, and log everything to Google Sheets and Excel." />
+<link rel="icon" type="image/png" href="logo/AGENZA LOGO.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="loader-inner">
+    <img src="logo/AGENZA LOGO.png" alt="AGENZA" />
+    <div class="loader-bar"><span></span></div>
+    <p>Preparing your smart agents…</p>
+  </div>
+</div>
+
+<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-overlay"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index-en.html" class="brand">
+      <img src="logo/AGENZA LOGO.png" alt="AGENZA logo" />
+      <span class="brand-text">AGENZA<small>AI AGENTS</small></span>
+    </a>
+    <nav class="links">
+      <a href="index-en.html">Home</a>
+      <a href="index-en.html#services">Agents</a>
+      <a href="about-en.html">About</a>
+      <a href="builder-en.html">Build Your Agent</a>
+      <a href="policy-en.html">Policies</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="langToggle" title="التبديل للعربية">AR</button>
+      <a href="index-en.html#contact" class="btn btn-primary btn-sm">Book a Free Demo</a>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="index-en.html#services">Agents</a>
+    <a href="about-en.html">About</a>
+    <a href="builder-en.html">Build Your Agent</a>
+    <a href="policy-en.html">Policies</a>
+    <a href="index-en.html#contact">Book a Demo</a>
+    <a class="langToggle" href="index.html">AR</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero container" id="hero">
+  <div class="hero-copy">
+    <div class="badge pulse-dot"><span class="dot"></span> AI agents working 24/7 — replying exactly like humans</div>
+    <h1>Your customer will never know<br />they're talking to <span class="grad">AI.</span><br /><span class="outline">That's the whole point.</span></h1>
+    <p class="lead">AGENZA builds smart agents that reply to messages and comments on every platform, confirm orders over WhatsApp and email, and log everything to Google Sheets and Excel — without you lifting a finger.</p>
+    <div class="hero-btns">
+      <a href="builder-en.html" class="btn btn-primary glow">Build My Agent →</a>
+      <a href="#demo" class="btn btn-ghost">▶ Watch a real chat</a>
+    </div>
+    <div class="hero-meta">
+      <div class="avatars"><span>M</span><span>S</span><span>K</span><span>+</span></div>
+      <div><strong>2,400+ chats daily</strong><small>handled by AGENZA agents in natural dialects</small></div>
+    </div>
+    <div class="mini-stats">
+      <div><b data-count="3">0</b><span>Avg. reply time (sec)</span></div>
+      <div><b><span data-count="98">0</span>%</b><span>Customer satisfaction</span></div>
+      <div><b><span data-count="40">0</span>%+</b><span>More confirmed orders</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="phone-wrap tilt">
+      <div class="phone-glow"></div>
+      <div class="chat-card">
+        <div class="chat-head">
+          <img src="logo/AGENZA LOGO BG.png" alt="" />
+          <div><strong>AGENZA Agent — Sneakers Store</strong><small><i></i> Online now • replies in seconds</small></div>
+          <div class="chat-icons">● ● ●</div>
+        </div>
+        <div class="chat-body" id="heroChat"></div>
+        <div class="chat-input"><span>Type a message…</span><button>➤</button></div>
+      </div>
+      <div class="float-card fc-1">
+        <div class="fc-icon">✔</div>
+        <div><strong>Order #4821 confirmed</strong><small>WhatsApp • 42 sec ago</small></div>
+      </div>
+      <div class="float-card fc-2">
+        <div class="fc-icon sheet">◫</div>
+        <div><strong>Logged to Google Sheets</strong><small>Name + address + phone</small></div>
+      </div>
+      <div class="float-card fc-3">
+        <div class="stars">★★★★★</div>
+        <div><strong>"Thought it was a sharp admin!"</strong><small>— an actual customer comment</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" dir="ltr">
+  <div class="marquee" id="marquee">
+    <div class="mq-group">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+    <div class="mq-group" aria-hidden="true">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+    <div class="mq-group" aria-hidden="true">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+    <div class="mq-group" aria-hidden="true">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section container" id="services">
+  <div class="sec-head reveal">
+    <small>// Your agent fleet</small>
+    <h2>3 agents. <span class="grad">Running the whole business.</span></h2>
+    <p>Not a bot that says "Hello, choose from the menu". AGENZA agents understand context, joke when it's right, and close the deal when it matters.</p>
+  </div>
+  <div class="cards3">
+    <article class="card reveal">
+      <div class="card-top"><div class="icon">💬</div><span class="tag">Most requested</span></div>
+      <h3>Smart Reply Agent</h3>
+      <p>Replies to WhatsApp, Messenger, Instagram and TikTok messages — plus the comments themselves — in your team's own style and dialect, never sounding like AI.</p>
+      <ul>
+        <li>Human-like replies in slang or formal tone</li>
+        <li>Replies to comments + moves them to DM automatically</li>
+        <li>Understands images, prices and complex questions</li>
+        <li>Smart escalation to a human when needed</li>
+      </ul>
+      <div class="mock mini-chat"><span class="m-user">How much is shipping to Mansoura? 🤔</span><span class="m-ai">Welcome! 😊 Shipping to Mansoura is 55 and arrives in 2-3 days.. want me to confirm your order?</span></div>
+    </article>
+    <article class="card featured reveal">
+      <div class="card-top"><div class="icon">📦</div><span class="tag hot">Closes sales</span></div>
+      <h3>Order Confirmation Agent</h3>
+      <p>Calls the customer on WhatsApp or email after every order, verifies address and phone, cuts returns, and wins back hesitant buyers.</p>
+      <ul>
+        <li>Smart text follow-up after every new order</li>
+        <li>Confirms: name, address, quantity, cash / card</li>
+        <li>Automatic follow-up on pending orders and abandoned carts</li>
+        <li>Daily report: confirmed / cancelled / no answer</li>
+      </ul>
+      <div class="mock order"><div><b>Order #4821 — confirmed ✔</b><small>WhatsApp • confirmed in 1:24 min</small></div><em>98%</em></div>
+    </article>
+    <article class="card reveal">
+      <div class="card-top"><div class="icon">📊</div><span class="tag">Zero errors</span></div>
+      <h3>Data Entry Agent</h3>
+      <p>Every chat or order instantly becomes an organized row in Google Sheets or Excel — no copy-paste, no mistakes.</p>
+      <ul>
+        <li>Instant logging: name, phone, address, product</li>
+        <li>Auto-cleaning of numbers and addresses</li>
+        <li>Connects with your CRM and existing sheets</li>
+        <li>Instant alert on missing data or wrong numbers</li>
+      </ul>
+      <div class="mock sheet-mock"><span></span><span></span><span class="on"></span><span></span><span class="on"></span><span></span><span></span><span class="on"></span><span></span></div>
+    </article>
+  </div>
+
+  <div class="compare reveal">
+    <div class="cmp-head"><span>Traditional bot 🤖</span><span class="agenza">AGENZA agent ✦</span><span>Human employee 🧑‍💼</span></div>
+    <div class="cmp-row"><span>Replies with saved templates</span><strong class="agenza">Replies like one of your team</strong><span>Replies well but sleeps 😴</span></div>
+    <div class="cmp-row"><span>Loses the comments</span><strong class="agenza">Replies to comments and turns them into orders</strong><span>Can't keep up with comments</span></div>
+    <div class="cmp-row"><span>—</span><strong class="agenza">Confirms the order + logs it in a sheet</strong><span>Sometimes forgets to log</span></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="sec-head reveal">
+      <small>// From zero to live</small>
+      <h2>Live in <span class="grad">just 4 steps.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><em>01</em><h4>We learn your business</h4><p>A 30-minute call: your products, prices, FAQs, and how you talk to customers.</p></div>
+      <div class="step reveal"><em>02</em><h4>We build it your way</h4><p>Trained on your data and dialect — you review the replies before launch.</p></div>
+      <div class="step reveal"><em>03</em><h4>We connect your channels</h4><p>WhatsApp, Facebook, Instagram, TikTok, email + Google Sheets and Excel. All in one day.</p></div>
+      <div class="step reveal"><em>04</em><h4>It works while you watch</h4><p>Instant 24/7 replies, order confirmations, daily reports. Improved every week.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="section container" id="demo">
+  <div class="sec-head reveal">
+    <small>// Try it yourself</small>
+    <h2>Click any agent <span class="grad">and watch it work.</span></h2>
+  </div>
+  <div class="demo-tabs reveal">
+    <button class="active" data-tab="reply">💬 Reply Agent</button>
+    <button data-tab="order">📦 Orders Agent</button>
+    <button data-tab="sheet">📊 Sheets Agent</button>
+  </div>
+  <div class="demo-box reveal">
+    <div class="demo-chat" id="demoChat"></div>
+    <div class="demo-side">
+      <h4 id="demoTitle">Smart Reply Agent</h4>
+      <p id="demoDesc">Replies to comments and messages like a real admin.</p>
+      <div class="demo-log" id="demoLog"></div>
+      <button class="btn btn-primary btn-sm" id="replayDemo">↻ Replay simulation</button>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="section container" id="integrations">
+  <div class="sec-head reveal">
+    <small>// Works where your customers are</small>
+    <h2>Fully integrated <span class="grad">with your tools.</span></h2>
+  </div>
+  <div class="integ-grid">
+    <div class="integ reveal"><i>🟢</i><b>WhatsApp Business</b><small>Replies + order confirmation</small></div>
+    <div class="integ reveal"><i>💙</i><b>Messenger</b><small>Instant 24/7 replies</small></div>
+    <div class="integ reveal"><i>📸</i><b>Instagram</b><small>DMs + comments + stories</small></div>
+    <div class="integ reveal"><i>👍</i><b>Facebook Comments</b><small>Reply + move to DM</small></div>
+    <div class="integ reveal"><i>🎵</i><b>TikTok</b><small>Comments and messages</small></div>
+    <div class="integ reveal"><i>✉️</i><b>Email</b><small>Confirmation &amp; follow-up</small></div>
+    <div class="integ reveal"><i>📗</i><b>Google Sheets</b><small>Instant logging</small></div>
+    <div class="integ reveal"><i>📊</i><b>Excel</b><small>Organized reports</small></div>
+  </div>
+  <div class="quote-strip reveal">
+    <p>"We used to reply after 3 hours… now customers get a reply in 3 seconds, and comment sales went up <b>3x</b>."</p>
+    <small>— Fashion store manager, AGENZA client ★★★★★</small>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section container" id="pricing">
+  <div class="sec-head reveal">
+    <small>// Flexible plans</small>
+    <h2>Pay for <span class="grad">your size.</span></h2>
+    <p>Every plan includes: human-feel replies, channel connections, and training on your products.</p>
+  </div>
+  <div class="pricing">
+    <div class="price reveal"><h4>Launch</h4><div class="p-num">—<small>/ month</small></div><ul><li>✔ One agent (reply or confirm)</li><li>✔ Two channels (e.g. WhatsApp + Facebook)</li><li>✔ Up to 1,000 chats / month</li><li>✔ Google Sheet logging</li></ul><a href="#contact" class="btn btn-ghost">Start now</a></div>
+    <div class="price pro reveal"><span class="tag hot">Best seller</span><h4>Growth</h4><div class="p-num">—<small>/ month</small></div><ul><li>✔ 3 agents (reply + orders + sheets)</li><li>✔ All channels + comments</li><li>✔ Up to 10,000 chats / month</li><li>✔ Reports + weekly tuning</li><li>✔ Priority WhatsApp support</li></ul><a href="#contact" class="btn btn-primary">Book a demo</a></div>
+    <div class="price reveal"><h4>Business</h4><div class="p-num">Custom</div><ul><li>✔ Multiple custom agents</li><li>✔ CRM / API / internal Excel links</li><li>✔ Unlimited chats</li><li>✔ Account manager + SLA</li></ul><a href="#contact" class="btn btn-ghost">Talk to us</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section container" id="faq">
+  <div class="sec-head reveal"><small>// Got questions?</small><h2>Frequently asked <span class="grad">questions.</span></h2></div>
+  <div class="faq">
+    <details open class="reveal"><summary>Will customers know it's AI?</summary><p>No — that's our secret. The agent replies in your dialect and style, gets context, humor and moods, and never makes robotic bot mistakes. Most of our clients' customers think it's a sharp new employee.</p></details>
+    <details class="reveal"><summary>Does it really reply to comments?</summary><p>Yes. It watches Facebook, Instagram and TikTok comments in real time, replies publicly like a human, and when there's buying intent it moves the customer to DM and follows through to the order.</p></details>
+    <details class="reveal"><summary>How does it confirm orders?</summary><p>As soon as an order comes in, the agent messages the customer on WhatsApp or email, verifies name, address, phone and payment method, logs the status (confirmed / cancelled / no answer) and follows up if they don't reply.</p></details>
+    <details class="reveal"><summary>Where is the data stored?</summary><p>Directly in your Google Sheets or Excel, in real time — every chat becomes an organized row. We clean numbers and addresses and alert you when something is missing.</p></details>
+    <details class="reveal"><summary>Which dialects does it speak?</summary><p>Egyptian, Gulf, Levantine, formal Arabic — switching per customer. And if you have product-specific terms, we train it on those too.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section container" id="contact">
+  <div class="contact-box reveal">
+    <div class="c-copy">
+      <small>// Ready to sleep while the agent works?</small>
+      <h2>Let <span class="grad">AGENZA</span><br />reply for you starting tomorrow.</h2>
+      <p>Leave your details and we'll call you the same day with a live demo on your own products — not a recorded pitch.</p>
+      <ul class="c-points"><li>✔ Free 30-minute demo</li><li>✔ One-week trial on your channels</li><li>✔ No credit card</li></ul>
+      <div class="c-direct">
+        <a href="#" class="btn btn-primary">💬 Direct WhatsApp</a>
+        <a href="mailto:hello@agenza.ai" class="btn btn-ghost">hello@agenza.ai</a>
+      </div>
+    </div>
+    <form class="c-form" id="leadForm">
+      <label>Your name<input required name="name" placeholder="e.g. Ahmed Samir" /></label>
+      <label>WhatsApp number<input required name="phone" placeholder="01xxxxxxxxx" /></label>
+      <label>Business type
+        <select name="biz"><option>Online store / E-commerce</option><option>Restaurant / Café</option><option>Clinic / Beauty center</option><option>Real estate</option><option>Services / Other</option></select>
+      </label>
+      <label>What do you need most?<textarea name="msg" rows="3" placeholder="e.g. replying to TikTok comments and confirming orders on WhatsApp…"></textarea></label>
+      <button class="btn btn-primary glow" type="submit">Send &amp; build my agent →</button>
+      <small class="form-note" id="formNote">By submitting you agree we may contact you via WhatsApp or email.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="f-brand"><img src="logo/AGENZA LOGO.png" alt="AGENZA" /><p>AI agents that reply, confirm and log — like humans, but they never sleep.</p></div>
+    <div><b>Pages</b><a href="index-en.html">Home</a><a href="about-en.html">About</a><a href="builder-en.html">Build Your Agent</a><a href="policy-en.html">Policies</a></div>
+    <div><b>Agents</b><a href="index-en.html#services">Reply agent</a><a href="index-en.html#services">Orders agent</a><a href="index-en.html#services">Sheets agent</a></div>
+    <div><b>Contact</b><a href="mailto:hello@agenza.ai">hello@agenza.ai</a><a href="#">WhatsApp</a><a href="#">LinkedIn</a></div>
+  </div>
+  <div class="copy">© 2026 AGENZA — All rights reserved. Made with passion in Egypt. • <a href="policy-en.html" style="color:var(--cyan)">Privacy Policy &amp; Terms</a></div>
+</footer>
+
+<a href="builder-en.html" class="sticky-cta">Build my agent →</a>
+
+<script src="script.js"></script>
+</body>
+</html>

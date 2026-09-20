@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ابني وكيلك — AGENZA</title>
+<meta name="description" content="ابني وكيل الذكاء الاصطناعي الخاص بيك: اختار الوكلاء والقنوات واللهجة واستلم عرض سعر مخصص." />
+<link rel="icon" type="image/png" href="logo/AGENZA LOGO.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.builder-hero{padding:60px 0 10px;text-align:center}
+.builder-hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900}
+.builder-hero p{color:var(--muted);max-width:60ch;margin:10px auto 0}
+.progress{display:flex;gap:8px;justify-content:center;margin:22px 0 6px;flex-wrap:wrap}
+.progress span{font-size:.78rem;font-weight:800;padding:7px 16px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);transition:.25s}
+.progress span.on{background:linear-gradient(135deg,var(--cyan),var(--deep));color:#03161f;border-color:transparent}
+.builder-layout{display:grid;grid-template-columns:1fr 340px;gap:20px;padding:20px 0 70px;align-items:start}
+.b-main{background:rgba(8,18,28,.75);border:1px solid var(--stroke);border-radius:22px;padding:30px;backdrop-filter:blur(14px);min-height:480px}
+.b-step{display:none}
+.b-step.show{display:block;animation:msgIn .4s ease}
+.b-step h2{font-size:1.35rem;margin-bottom:4px}
+.b-step>p{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.opt{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);border-radius:16px;padding:18px;cursor:pointer;transition:.22s;text-align:start;font-family:inherit;color:var(--text)}
+.opt:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.opt.sel{border-color:var(--cyan);background:rgba(56,225,255,.1);box-shadow:0 0 25px rgba(56,225,255,.15)}
+.opt b{display:block;font-size:1rem}
+.opt small{color:var(--muted);font-size:.82rem}
+.opt .emo{font-size:1.6rem}
+.b-nav{display:flex;justify-content:space-between;margin-top:24px;gap:10px}
+.b-side{position:sticky;top:90px;background:linear-gradient(180deg,rgba(22,58,82,.9),rgba(10,24,36,.92));border:1px solid rgba(56,225,255,.4);border-radius:20px;padding:24px;box-shadow:0 0 50px rgba(56,225,255,.12)}
+.b-side h3{color:var(--cyan);font-size:1rem;margin-bottom:12px}
+.sum-row{display:flex;justify-content:space-between;font-size:.85rem;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.1);color:#cfe0ec}
+.sum-row b{color:#fff}
+.sum-total{margin:14px 0;padding:14px;border-radius:14px;background:rgba(0,0,0,.3);border:1px solid rgba(56,225,255,.3);text-align:center}
+.sum-total b{color:var(--cyan);font-size:1.15rem;display:block}
+.sum-total small{color:var(--muted);font-size:.78rem}
+.b-form label{font-size:.82rem;font-weight:700;display:flex;flex-direction:column;gap:6px;color:var(--silver);margin-bottom:10px}
+.b-form input,.b-form select,.b-form textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:11px 13px;color:#fff;font-family:inherit;font-size:.88rem;outline:none}
+.b-form input:focus,.b-form textarea:focus{border-color:var(--cyan)}
+.b-form select option{color:#000}
+.pay-note{font-size:.78rem;color:var(--muted);background:rgba(255,206,58,.07);border:1px dashed rgba(255,206,58,.4);border-radius:12px;padding:10px 14px;margin:12px 0;color:#ffe1a1}
+#sendBtn{width:100%}
+.ok-msg{display:none;text-align:center;padding:30px 10px}
+.ok-msg .big{font-size:3rem}
+@media(max-width:980px){.builder-layout{grid-template-columns:1fr}.b-side{position:static}.opt-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="loader-inner">
+    <img src="logo/AGENZA LOGO.png" alt="AGENZA" />
+    <div class="loader-bar"><span></span></div>
+    <p>بنجهز ورشة التركيب…</p>
+  </div>
+</div>
+
+<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <img src="logo/AGENZA LOGO.png" alt="AGENZA logo" />
+      <span class="brand-text">AGENZA<small>AI AGENTS</small></span>
+    </a>
+    <nav class="links">
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">من نحن</a>
+      <a href="builder.html">ابني وكيلك</a>
+      <a href="policy.html">السياسات</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="langToggle" title="Switch to English">EN</button>
+      <a href="index.html#contact" class="btn btn-primary btn-sm">احجز ديمو</a>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="builder.html">ابني وكيلك</a>
+    <a href="policy.html">السياسات والشروط</a>
+    <a class="langToggle" href="builder-en.html">EN</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="builder-hero">
+    <div class="badge pulse-dot"><span class="dot"></span> ورشة التركيب — صمّم وكيلك في دقيقة</div>
+    <h1>ابني الـ <span class="grad">AI Agent</span> بتاعك بنفسك.</h1>
+    <p>جاوب على 5 خطوات سريعة، شوف ملخص التركيبة والباقة المقترحة لحظياً، وابعتهالنا واتساب — وهنرجعلك بعرض سعر مخصص.</p>
+    <div class="progress" id="progress">
+      <span class="on" data-p="1">1 — نوع البيزنس</span>
+      <span data-p="2">2 — الوكلاء</span>
+      <span data-p="3">3 — القنوات</span>
+      <span data-p="4">4 — اللهجة والأسلوب</span>
+      <span data-p="5">5 — بياناتك</span>
+    </div>
+  </section>
+
+  <div class="builder-layout">
+    <div class="b-main">
+      <!-- STEP 1 -->
+      <div class="b-step show" data-step="1">
+        <h2>إيه نوع البيزنس بتاعك؟</h2>
+        <p>اختار الأقرب ليك — عشان نجهز الوكيل على طبيعة شغلك.</p>
+        <div class="opt-grid" data-group="biz" data-single="1">
+          <button class="opt"><span class="emo">🛍️</span><b>متجر أونلاين</b><small>ملابس / أحذية / إكسسوارات / منتجات</small></button>
+          <button class="opt"><span class="emo">🍔</span><b>مطعم / كافيه</b><small>منيو / حجوزات / دليفري</small></button>
+          <button class="opt"><span class="emo">💄</span><b>عيادة / مركز تجميل</b><small>حجوزات / استشارات / متابعة</small></button>
+          <button class="opt"><span class="emo">🏠</span><b>عقارات</b><small>استفسارات / معاينات / متابعة عملاء</small></button>
+          <button class="opt"><span class="emo">📚</span><b>تعليم / كورسات</b><small>تسجيل / استفسارات / متابعة طلاب</small></button>
+          <button class="opt"><span class="emo">🔧</span><b>خدمات / أخرى</b><small>صيانة / شحن / خدمات عامة</small></button>
+        </div>
+        <div class="b-nav"><span></span><button class="btn btn-primary next">التالي ←</button></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="b-step" data-step="2">
+        <h2>اختار الوكلاء اللي محتاجهم</h2>
+        <p>ممكن تختار واحد أو أكتر — الأغلبية بياخدوا التلاتة مع بعض.</p>
+        <div class="opt-grid" data-group="agents">
+          <button class="opt"><span class="emo">💬</span><b>وكيل الرد الذكي</b><small>رد بشري على الرسائل والكومنتات في كل المنصات</small></button>
+          <button class="opt"><span class="emo">📦</span><b>وكيل تأكيد الأوردرات</b><small>تأكيد عبر واتساب / إيميل + متابعة المتردد</small></button>
+          <button class="opt"><span class="emo">📊</span><b>وكيل إدخال البيانات</b><small>تسجيل لحظي في Google Sheets وإكسل</small></button>
+        </div>
+        <div class="b-nav"><button class="btn btn-ghost prev">→ السابق</button><button class="btn btn-primary next">التالي ←</button></div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="b-step" data-step="3">
+        <h2>عملائك موجودين فين؟</h2>
+        <p>اختار كل القنوات اللي عايز الوكيل يشتغل عليها.</p>
+        <div class="opt-grid" data-group="channels">
+          <button class="opt"><span class="emo">🟢</span><b>WhatsApp</b><small>رد + تأكيد أوردرات</small></button>
+          <button class="opt"><span class="emo">💙</span><b>Messenger</b><small>رد فوري على رسائل الصفحة</small></button>
+          <button class="opt"><span class="emo">📸</span><b>Instagram</b><small>DMs + كومنتات + ستوري</small></button>
+          <button class="opt"><span class="emo">👍</span><b>Facebook Comments</b><small>رد علني + تحويل لخاص</small></button>
+          <button class="opt"><span class="emo">🎵</span><b>TikTok</b><small>كومنتات ورسائل</small></button>
+          <button class="opt"><span class="emo">✉️</span><b>Email + Sheets</b><small>تأكيد إيميل + تسجيل تلقائي</small></button>
+        </div>
+        <div class="b-nav"><button class="btn btn-ghost prev">→ السابق</button><button class="btn btn-primary next">التالي ←</button></div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="b-step" data-step="4">
+        <h2>الوكيل يتكلم إزاي؟</h2>
+        <p>اختار اللهجة الأساسية + نبرة الكلام.</p>
+        <div class="opt-grid" data-group="dialect" data-single="1">
+          <button class="opt"><span class="emo">🇪🇬</span><b>مصري</b><small>عامية طبيعية زي فريقك</small></button>
+          <button class="opt"><span class="emo">🇸🇦</span><b>خليجي</b><small>لهجة سعودية / إماراتية</small></button>
+          <button class="opt"><span class="emo">📖</span><b>فصحى</b><small>رسمية للشركات والعيادات</small></button>
+          <button class="opt"><span class="emo">🌍</span><b>ميكس</b><small>يبدّل حسب كل عميل تلقائياً</small></button>
+        </div>
+        <div style="height:14px"></div>
+        <div class="opt-grid" data-group="tone" data-single="1">
+          <button class="opt"><span class="emo">😄</span><b>ودود ومرح</b><small>إيموجي وهزار خفيف — للمتاجر والمطاعم</small></button>
+          <button class="opt"><span class="emo">🤝</span><b>احترافي هادي</b><small>رسمي مطمئن — للعيادات والعقارات</small></button>
+        </div>
+        <div class="b-nav"><button class="btn btn-ghost prev">→ السابق</button><button class="btn btn-primary next">التالي ←</button></div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="b-step" data-step="5">
+        <div id="formWrap">
+          <h2>تمام! سيب بياناتك واستلم عرض السعر</h2>
+          <p>هنراجع تركيبتك ونبعتلك عرض سعر مخصص على واتساب خلال ساعات العمل.</p>
+          <div class="b-form">
+            <label>اسمك<input id="fName" placeholder="مثال: أحمد سمير" /></label>
+            <label>رقم الواتساب<input id="fPhone" placeholder="01xxxxxxxxx" /></label>
+            <label>اسم البراند / الصفحة<input id="fBrand" placeholder="مثال: متجر Sneakers" /></label>
+            <label>متوسط عدد الرسائل يومياً
+              <select id="fVol"><option>أقل من 50</option><option>50 – 200</option><option>200 – 500</option><option>أكتر من 500</option></select>
+            </label>
+            <label>ملاحظات إضافية<textarea id="fNotes" rows="2" placeholder="مثال: عندي مشكلة في تأكيد الأوردرات والمرتجعات كتير…"></textarea></label>
+          </div>
+          <div class="pay-note">💳 نظام التعامل: <b>50% مقدم</b> قبل بدء العمل + <b>مصروف شهري أول كل شهر</b> يشمل API الذكاء الاصطناعي والصيانة — التفاصيل في <a href="policy.html" style="color:var(--cyan)">صفحة السياسات</a>.</div>
+          <div class="b-nav"><button class="btn btn-ghost prev">→ السابق</button><button class="btn btn-primary glow" id="sendBtn">ابعت طلب التركيب ←</button></div>
+        </div>
+        <div class="ok-msg" id="okMsg">
+          <div class="big">🎉</div>
+          <h2>طلبك جاهز يا بطل!</h2>
+          <p style="color:var(--muted)">دوس على الزرار عشان تبعتهولنا واتساب، وهنرد عليك بعرض السعر.</p>
+          <a href="#" id="waLink" target="_blank" class="btn btn-primary glow" style="margin-top:14px">💬 ابعت عبر واتساب</a>
+          <div><button class="btn btn-ghost btn-sm" id="copyBtn" style="margin-top:10px">📋 نسخ ملخص الطلب</button></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="b-side">
+      <h3>// ملخص تركيبتك لحظياً 👇</h3>
+      <div class="sum-row"><span>البيزنس</span><b id="sBiz">—</b></div>
+      <div class="sum-row"><span>الوكلاء (<span id="sAgentsN">0</span>)</span><b id="sAgents">—</b></div>
+      <div class="sum-row"><span>القنوات (<span id="sChannelsN">0</span>)</span><b id="sChannels">—</b></div>
+      <div class="sum-row"><span>اللهجة</span><b id="sDialect">—</b></div>
+      <div class="sum-row"><span>النبرة</span><b id="sTone">—</b></div>
+      <div class="sum-total">
+        <small>الباقة المقترحة ليك</small>
+        <b id="sPack">اختار وكيل عشان نقترح</b>
+        <small id="sPackD">التسعير النهائي في عرض مخصص حسب حجم شغلك</small>
+      </div>
+      <div class="pay-note">50% مقدم قبل البدء • مصروف شهري أول الشهر (API + صيانة) • صيانة طول الشهر</div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="f-brand"><img src="logo/AGENZA LOGO.png" alt="AGENZA" /><p>وكلاء ذكاء اصطناعي بيردّوا، بيأكّدوا، وبيسجّلوا — كأنهم بشر، بس مابيناموش.</p></div>
+    <div><b>صفحات</b><a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="builder.html">ابني وكيلك</a><a href="policy.html">السياسات والشروط</a></div>
+    <div><b>الوكلاء</b><a href="index.html#services">وكيل الرد</a><a href="index.html#services">وكيل الأوردرات</a><a href="index.html#services">وكيل الشيتات</a></div>
+    <div><b>تواصل</b><a href="mailto:hello@agenza.ai">hello@agenza.ai</a><a href="#">WhatsApp</a><a href="#">LinkedIn</a></div>
+  </div>
+  <div class="copy">© 2026 AGENZA — All rights reserved. صُنع بشغف في مصر. • <a href="policy.html" style="color:var(--cyan)">سياسة الخصوصية وشروط التعامل</a></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Builder logic
+let step = 1;
+const maxStep = 5;
+const state = { biz:null, agents:[], channels:[], dialect:null, tone:null };
+
+function go(n){
+  step = Math.max(1, Math.min(maxStep, n));
+  document.querySelectorAll('.b-step').forEach(s=>s.classList.toggle('show', +s.dataset.step===step));
+  document.querySelectorAll('#progress span').forEach(p=>p.classList.toggle('on', +p.dataset.p<=step));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>go(step+1)));
+document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>go(step-1)));
+document.querySelectorAll('#progress span').forEach(p=>p.addEventListener('click',()=>go(+p.dataset.p)));
+
+document.querySelectorAll('.opt-grid').forEach(grid=>{
+  const single = grid.dataset.single==='1';
+  grid.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>{
+    if(single){ grid.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel')); btn.classList.add('sel'); }
+    else btn.classList.toggle('sel');
+    collect(); updateSummary();
+  }));
+});
+
+function picked(group){
+  return [...document.querySelectorAll(`.opt-grid[data-group="${group}"] .opt.sel`)].map(b=>b.querySelector('b').textContent.trim());
+}
+function collect(){
+  const biz=picked('biz'), ag=picked('agents'), ch=picked('channels'), dl=picked('dialect'), tn=picked('tone');
+  state.biz=biz[0]||null; state.agents=ag; state.channels=ch; state.dialect=dl[0]||null; state.tone=tn[0]||null;
+}
+function pack(){
+  const n=state.agents.length, c=state.channels.length;
+  if(n===0) return ['اختار وكيل عشان نقترح','التسعير النهائي في عرض مخصص حسب حجم شغلك'];
+  if(n>=3||c>=5) return ['باقة الشركات','وكلاء متعددون + كل القنوات + ربط مخصص'];
+  if(n>=2||c>=3) return ['باقة النمو ⭐','الأكثر مبيعاً — 3 وكلاء + كل القنوات'];
+  return ['باقة الانطلاقة','وكيل واحد + قناتان — بداية مثالية'];
+}
+function updateSummary(){
+  document.getElementById('sBiz').textContent = state.biz||'—';
+  document.getElementById('sAgentsN').textContent = state.agents.length;
+  document.getElementById('sAgents').textContent = state.agents.join('، ')||'—';
+  document.getElementById('sChannelsN').textContent = state.channels.length;
+  document.getElementById('sChannels').textContent = state.channels.join('، ')||'—';
+  document.getElementById('sDialect').textContent = state.dialect||'—';
+  document.getElementById('sTone').textContent = state.tone||'—';
+  const [p,d]=pack();
+  document.getElementById('sPack').textContent=p;
+  document.getElementById('sPackD').textContent=d;
+}
+
+document.getElementById('sendBtn').addEventListener('click',()=>{
+  collect();
+  const name=document.getElementById('fName').value||'—';
+  const phone=document.getElementById('fPhone').value||'—';
+  const brand=document.getElementById('fBrand').value||'—';
+  const vol=document.getElementById('fVol').value;
+  const notes=document.getElementById('fNotes').value||'—';
+  const [p]=pack();
+  const msg =
+`طلب تركيب وكيل جديد من موقع AGENZA 🤖%0A`+
+`———————————%0A`+
+`الاسم: ${encodeURIComponent(name)}%0A`+
+`التليفون: ${encodeURIComponent(phone)}%0A`+
+`البراند: ${encodeURIComponent(brand)}%0A`+
+`البيزنس: ${encodeURIComponent(state.biz||'—')}%0A`+
+`الوكلاء: ${encodeURIComponent(state.agents.join('، ')||'—')}%0A`+
+`القنوات: ${encodeURIComponent(state.channels.join('، ')||'—')}%0A`+
+`اللهجة: ${encodeURIComponent(state.dialect||'—')}%0A`+
+`النبرة: ${encodeURIComponent(state.tone||'—')}%0A`+
+`حجم الرسائل: ${encodeURIComponent(vol)}%0A`+
+`الباقة المقترحة: ${encodeURIComponent(p)}%0A`+
+`ملاحظات: ${encodeURIComponent(notes)}`;
+  document.getElementById('waLink').href='https://api.whatsapp.com/send?text='+msg;
+  document.getElementById('waLink').dataset.raw = decodeURIComponent(msg.replaceAll('%0A','\n'));
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('okMsg').style.display='block';
+});
+document.getElementById('copyBtn').addEventListener('click',e=>{
+  const t=document.getElementById('waLink').dataset.raw||'';
+  navigator.clipboard?.writeText(t);
+  e.target.textContent='✔ اتنسخ!';
+});
+updateSummary();
+</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy &amp; Terms — AGENZA</title>
+<meta name="description" content="AGENZA privacy policy and terms: confidentiality, payments, monthly fees and maintenance." />
+<link rel="icon" type="image/png" href="logo/AGENZA LOGO.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.policy-hero{padding:70px 0 10px;text-align:center}
+.policy-hero .badge{margin-bottom:14px}
+.policy-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.4}
+.policy-hero p{color:var(--muted);max-width:62ch;margin:12px auto 0}
+.updated{display:inline-flex;gap:8px;align-items:center;margin-top:16px;font-size:.85rem;color:var(--silver);background:rgba(56,225,255,.07);border:1px solid var(--stroke);padding:8px 18px;border-radius:99px}
+.policy-grid{display:grid;grid-template-columns:280px 1fr;gap:22px;padding:40px 0 70px;align-items:start}
+.toc{position:sticky;top:90px;background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:20px;backdrop-filter:blur(14px)}
+.toc b{color:var(--cyan);font-size:.9rem;display:block;margin-bottom:12px}
+.toc a{display:block;padding:8px 12px;border-radius:10px;color:var(--silver);font-size:.88rem;font-weight:600}
+.toc a:hover,.toc a.active{background:rgba(56,225,255,.1);color:var(--text)}
+.policy-doc{display:flex;flex-direction:column;gap:16px}
+.p-card{background:var(--card);border:1px solid var(--stroke);border-radius:20px;padding:28px;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.p-card::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.55}
+.p-card h2{font-size:1.3rem;margin-bottom:6px;display:flex;gap:10px;align-items:center}
+.p-card h2 .n{font-family:'Space Grotesk';color:transparent;-webkit-text-stroke:1px var(--cyan);font-size:1.4rem}
+.p-card p,.p-card li{color:#c6d6e2;font-size:.95rem}
+.p-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.p-card ul li{padding-inline-start:24px;position:relative}
+.p-card ul li::before{content:'✓';position:absolute;inset-inline-start:0;color:var(--cyan);font-weight:900}
+.highlight{border-color:rgba(56,225,255,.45)!important;background:linear-gradient(180deg,rgba(22,58,82,.85),rgba(10,24,36,.9))!important}
+.pay-box{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.pay-box div{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:16px;text-align:center}
+.pay-box b{font-family:'Space Grotesk';font-size:2rem;color:var(--cyan);display:block;line-height:1.2}
+.pay-box small{color:var(--muted)}
+.note{background:rgba(255,206,58,.08);border:1px dashed rgba(255,206,58,.45);border-radius:12px;padding:12px 16px;margin-top:14px;font-size:.87rem;color:#ffe1a1}
+.back-home{margin:0 auto 70px;display:flex;justify-content:center}
+@media(max-width:900px){.policy-grid{grid-template-columns:1fr}.toc{position:static}.pay-box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="loader-inner">
+    <img src="logo/AGENZA LOGO.png" alt="AGENZA" />
+    <div class="loader-bar"><span></span></div>
+    <p>Opening terms &amp; policies…</p>
+  </div>
+</div>
+
+<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index-en.html" class="brand">
+      <img src="logo/AGENZA LOGO.png" alt="AGENZA logo" />
+      <span class="brand-text">AGENZA<small>AI AGENTS</small></span>
+    </a>
+    <nav class="links">
+      <a href="index-en.html">Home</a>
+      <a href="about-en.html">About</a>
+      <a href="builder-en.html">Build Your Agent</a>
+      <a href="policy-en.html">Policies</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="langToggle" title="التبديل للعربية">AR</button>
+      <a href="builder-en.html" class="btn btn-primary btn-sm">Build My Agent →</a>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="about-en.html">About</a>
+    <a href="builder-en.html">Build Your Agent</a>
+    <a href="policy-en.html">Policies</a>
+    <a class="langToggle" href="policy.html">AR</a>
+  </div>
+</header>
+
+<main>
+  <section class="container policy-hero">
+    <div class="badge pulse-dot"><span class="dot"></span> Transparency first — no hidden clauses</div>
+    <h1>Privacy Policy <span class="grad">&amp; Terms.</span></h1>
+    <p>Welcome to AGENZA. This page covers everything you need to know: how we protect your secrets, our payment system, monthly fees, and maintenance. Simply and plainly.</p>
+    <div class="updated">📅 Last updated: September 2026 • Applies to all AGENZA clients</div>
+  </section>
+
+  <section class="container policy-grid">
+    <aside class="toc">
+      <b>// Contents</b>
+      <a href="#sec1">1 — Confidentiality</a>
+      <a href="#sec2">2 — Data we collect</a>
+      <a href="#sec3">3 — How data is used</a>
+      <a href="#sec4">4 — Payments (50% upfront)</a>
+      <a href="#sec5">5 — Monthly fees</a>
+      <a href="#sec6">6 — Maintenance &amp; support</a>
+      <a href="#sec7">7 — Ownership &amp; delivery</a>
+      <a href="#sec8">8 — Cancellation &amp; refunds</a>
+      <a href="#sec9">9 — Client responsibilities</a>
+      <a href="#sec10">10 — Service limits</a>
+      <a href="#sec11">11 — Contact us</a>
+    </aside>
+
+    <div class="policy-doc">
+      <article class="p-card highlight" id="sec1">
+        <h2><span class="n">01</span> Confidentiality — your secrets are safe 🔒</h2>
+        <p>This is our top priority. Our whole business runs on trust, so:</p>
+        <ul>
+          <li>The company is committed to <b>never disclosing any client secrets</b> — no names, products, prices, data, or chats.</li>
+          <li>Sharing your data with any third party for marketing or commercial purposes is strictly forbidden.</li>
+          <li>Every team member signs a strict internal NDA.</li>
+          <li>Data access is limited to the smallest possible number of specialists working on your project only.</li>
+          <li>When the contract ends — on your request — we delete operational data copies from our systems within 14 days and send you a deletion confirmation.</li>
+          <li>We never use your company name or logo in our marketing without your explicit written approval.</li>
+        </ul>
+      </article>
+
+      <article class="p-card" id="sec2">
+        <h2><span class="n">02</span> Data we collect and why 📥</h2>
+        <p>To build an agent that truly understands your business, we need:</p>
+        <ul>
+          <li>Contact details: name, WhatsApp number, email address.</li>
+          <li>Business data: products, prices, offers, FAQs, and your preferred reply style.</li>
+          <li>Connection permissions: social pages, WhatsApp Business, email, and Google Sheets files — limited to running the agent only.</li>
+          <li>Chat and order logs — to improve the agent and measure results.</li>
+        </ul>
+        <div class="note">⚠️ We never ask for your banking passwords or your customers' payment details. The agent only handles order confirmation.</div>
+      </article>
+
+      <article class="p-card" id="sec3">
+        <h2><span class="n">03</span> How we use data — and what we never do 🛡️</h2>
+        <ul>
+          <li>Training your agent only on your products and style — never on anyone else's.</li>
+          <li>Running replies, confirming orders, and logging to sheets.</li>
+          <li>Performance reports and weekly reply tuning.</li>
+          <li><b>We don't sell data. We don't share it. We don't use it to train public models</b> available to any other client.</li>
+          <li>Connections are encrypted, and dashboards use separate passwords and per-project permissions.</li>
+        </ul>
+      </article>
+
+      <article class="p-card highlight" id="sec4">
+        <h2><span class="n">04</span> Payments — 50% upfront 💳</h2>
+        <p>Our system is clear from day one so both sides stay comfortable:</p>
+        <div class="pay-box">
+          <div><b>50%</b><small>Upfront — paid before work starts<br />reserves your slot and kicks off build &amp; training</small></div>
+          <div><b>50%</b><small>On delivery &amp; pilot run<br />after you approve the agent and it's linked successfully</small></div>
+        </div>
+        <ul>
+          <li>No work starts (agent build / training / connections) before the upfront payment is received.</li>
+          <li>Payment via bank transfer / e-wallets / the method agreed in your quote.</li>
+          <li>The quote we send is the final setup price — any new additions need a separate written agreement.</li>
+          <li>Delaying the second payment pauses final delivery and tuning services until paid.</li>
+        </ul>
+      </article>
+
+      <article class="p-card" id="sec5">
+        <h2><span class="n">05</span> Monthly fees — paid in full at month start 🔁</h2>
+        <p>After delivery, the agent needs monthly running costs to stay at full performance. The rule is simple:</p>
+        <ul>
+          <li><b>Monthly fees are paid in full at the start of each month</b> (days 1–5 at most).</li>
+          <li>They cover: <b>AI API costs</b> (reply consumption) + <b>maintenance, hosting and monitoring</b>.</li>
+          <li>Your plan fee is fixed; if your usage exceeds normal limits we notify you first and suggest an upgrade — no surprise bills.</li>
+          <li>Missing the monthly payment may lead to a temporary pause after a 48-hour notice, and service resumes immediately on payment with no restart fee the first time.</li>
+          <li>Extra services (new channels / languages / CRM links) are billed separately with your prior approval.</li>
+        </ul>
+        <div class="note">💡 Why upfront? Because we pre-pay API and hosting costs to providers on your behalf — early payment keeps your agent from stopping for a single second.</div>
+      </article>
+
+      <article class="p-card" id="sec6">
+        <h2><span class="n">06</span> Maintenance — with you all month 🛠️</h2>
+        <p><b>Clients get maintenance all month long</b> as part of the monthly fee, including:</p>
+        <ul>
+          <li>Round-the-clock agent monitoring with instant intervention on any failure.</li>
+          <li>Weekly reply improvements based on real chats.</li>
+          <li>Updating prices, products and offers when you send them (within 48 business hours).</li>
+          <li>Free fixes for any connection issues (WhatsApp / social / sheets).</li>
+          <li>A short performance report each month-end: chat counts, confirmation rate, key notes.</li>
+          <li>Priority WhatsApp support during working hours + emergency line for critical outages.</li>
+        </ul>
+        <p style="margin-top:10px">Maintenance <b>does not include</b>: building a brand-new agent, or radical changes to the business nature — billed as extra development under a separate agreement.</p>
+      </article>
+
+      <article class="p-card" id="sec7">
+        <h2><span class="n">07</span> Ownership &amp; delivery 📦</h2>
+        <ul>
+          <li>After full setup payment, your agent's setup (replies, knowledge base, connection files) is entirely yours.</li>
+          <li>AGENZA's core technical infrastructure (code and platform) remains ours, granted to you as a usage right for the subscription duration.</li>
+          <li>Delivery happens through a pilot run you approve yourself before official launch.</li>
+          <li>The agreed timeline starts from receiving the upfront payment + all required data from you.</li>
+        </ul>
+      </article>
+
+      <article class="p-card" id="sec8">
+        <h2><span class="n">08</span> Cancellation &amp; refunds ↩️</h2>
+        <ul>
+          <li>The 50% upfront is non-refundable once work has actually started, as it covers build, training and connection hours.</li>
+          <li>If you cancel before work starts, the upfront is fully refunded within 7 business days.</li>
+          <li>Monthly plans can be cancelled before the new month — amounts paid for an ongoing month are non-refundable while service and maintenance continue.</li>
+          <li>In case of a major shortfall on our side not fixed within 14 days of reporting, you're entitled to a fair refund by mutual agreement.</li>
+        </ul>
+      </article>
+
+      <article class="p-card" id="sec9">
+        <h2><span class="n">09</span> Client responsibilities 🤝</h2>
+        <ul>
+          <li>Providing accurate, up-to-date data (prices, products, shipping and return policies).</li>
+          <li>Granting the needed connection permissions and cooperating in testing and approval.</li>
+          <li>Replying to our team's questions during the build phase so we meet the deadline.</li>
+          <li>Not using the agent for anything illegal or against platform policies (spam, fraud, banned content).</li>
+        </ul>
+      </article>
+
+      <article class="p-card" id="sec10">
+        <h2><span class="n">10</span> Service limits — honestly stated ⚖️</h2>
+        <ul>
+          <li>We target 99% monthly stability, but outages beyond our control can happen (WhatsApp / Facebook / API provider outages) — we act immediately and notify you.</li>
+          <li>AI can rarely err; that's why we set review rules and human escalation for sensitive cases (large amounts / complaints).</li>
+          <li>We're not liable for losses caused by wrong data you provided, or your delay in approving updates.</li>
+          <li>This policy may be updated with a 7-day prior notice; the version published here is the reference.</li>
+        </ul>
+      </article>
+
+      <article class="p-card highlight" id="sec11">
+        <h2><span class="n">11</span> Contact us 💬</h2>
+        <p>Any question about the policy or terms — reach us anytime:</p>
+        <ul>
+          <li>Email: <b dir="ltr">hello@agenza.ai</b></li>
+          <li>WhatsApp: available via the contact button on the homepage</li>
+          <li>Working hours: daily except Friday — replies during working hours</li>
+        </ul>
+        <div class="note">✅ By using AGENZA services you confirm you've read this policy and agree to its terms.</div>
+      </article>
+    </div>
+  </section>
+
+  <div class="back-home">
+    <a href="index-en.html" class="btn btn-primary">→ Back to homepage</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="f-brand"><img src="logo/AGENZA LOGO.png" alt="AGENZA" /><p>AI agents that reply, confirm and log — like humans, but they never sleep.</p></div>
+    <div><b>Pages</b><a href="index-en.html">Home</a><a href="about-en.html">About</a><a href="builder-en.html">Build Your Agent</a><a href="policy-en.html">Policies</a></div>
+    <div><b>Agents</b><a href="index-en.html#services">Reply agent</a><a href="index-en.html#services">Orders agent</a><a href="index-en.html#services">Sheets agent</a></div>
+    <div><b>Contact</b><a href="mailto:hello@agenza.ai">hello@agenza.ai</a><a href="#">WhatsApp</a><a href="#">LinkedIn</a></div>
+  </div>
+  <div class="copy">© 2026 AGENZA — All rights reserved. Made with passion in Egypt. • <a href="policy-en.html" style="color:var(--cyan)">Privacy Policy &amp; Terms</a></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+document.querySelectorAll('.toc a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.querySelectorAll('.toc a').forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
