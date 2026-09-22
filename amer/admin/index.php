@@ -10,6 +10,7 @@ require __DIR__ . '/../backend/Logger.php';
 require __DIR__ . '/../backend/Knowledge.php';
 require __DIR__ . '/../backend/OpenAIClient.php';
 require __DIR__ . '/../backend/GeminiClient.php';
+require __DIR__ . '/../backend/OpenRouterClient.php';
 require __DIR__ . '/../backend/AiClient.php';
 amer_load_env();
 
