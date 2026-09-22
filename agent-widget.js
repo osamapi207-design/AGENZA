@@ -3,9 +3,8 @@
    server-side only. If the server is unreachable, a polite local
    fallback answers so the widget never breaks. */
 const AGENZA_AGENT = {
-  // ⚠️ استبدل بالرابط الحقيقي بعد نشر سيرفر Render، مثال:
-  // "https://amer-api.onrender.com/amer/backend/api.php"
-  ENDPOINT: "https://RENDER-APP-URL.onrender.com/amer/backend/api.php",
+  // Production AI server (Render) — key stays server-side in env vars.
+  ENDPOINT: "https://amer-api.onrender.com/amer/backend/api.php",
   WHATSAPP: "https://api.whatsapp.com/send?text=" + encodeURIComponent("أهلاً AGENZA 👋 عايز أستفسر عن وكلاء الذكاء الاصطناعي"),
   WHATSAPP_EN: "https://api.whatsapp.com/send?text=" + encodeURIComponent("Hi AGENZA 👋 I want to ask about your AI agents"),
 };
