@@ -1,11 +1,6 @@
 # Render.com — Amer AI server (PHP 8.2 + Apache, zero code changes)
+# NOTE: curl + mbstring + opcache are preinstalled in this image — no apt needed.
 FROM php:8.2-apache
-
-# cURL + mbstring (usually preinstalled — this guarantees it)
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends libcurl4-openssl-dev \
-  && docker-php-ext-install curl mbstring opcache \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # copy the whole site (frontend + amer/ backend)
 COPY . /var/www/html/
