@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /amer/database/
+Disallow: /amer/admin/
+Disallow: /api/logs/
+
+Sitemap: https://osamapi207-design.github.io/AGENZA/sitemap.xml
