@@ -55,6 +55,13 @@ class AmerOpenAI {
       ['max_tokens' => 5, 'temperature' => 0, 'timeout' => 20]
     );
     if ($r['ok']) return ['ok' => true, 'reply' => $r['reply']];
-    return ['ok' => false, 'error' => $r['error'] ?? 'unknown'];
+    $http = isset($r['http']) ? (int)$r['http'] : 0;
+    $hints = [
+      401 => 'المفتاح غلط أو ملغي — انسخ مفتاحاً جديداً من OpenAI',
+      403 => 'مرفوض من OpenAI (مشروع/دولة) — راجع إعدادات المشروع',
+      429 => 'مفيش رصيد (insufficient_quota) — اشحن Credit من Billing',
+    ];
+    $hint = isset($hints[$http]) ? $hints[$http] : ('راجع Render ← Logs, HTTP ' . $http);
+    return ['ok' => false, 'error' => ($r['error'] ?? 'unknown') . ' (HTTP ' . $http . ') — ' . $hint];
   }
 }
