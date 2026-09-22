@@ -1,0 +1,44 @@
+=== AGENZA company knowledge file (Amer answers ONLY from this) ===
+Last updated: September 2026
+
+--- About ---
+- AGENZA is an Egyptian software company specialized in AI agents.
+- Born from a real problem: stores losing customers to 3-hour reply delays and unanswered buying-intent comments, while traditional bots drove customers away with saved templates.
+- Mission: every Arab business gets a 24/7 sales + support team for the cost of one employee.
+
+--- The three agents ---
+1) Smart Reply Agent: answers WhatsApp, Messenger, Instagram (DMs/comments/stories), TikTok, and Facebook comments in the team's own style and dialect. Understands images, prices, complex questions. Moves comments to DM automatically. Escalates to humans when needed.
+2) Order Confirmation Agent: messages every customer on WhatsApp/email after ordering; verifies name, address, phone, quantity, payment (cash/card); follows up pending orders and abandoned carts; sends a daily report: confirmed / cancelled / no-answer.
+3) Data Entry Agent: every chat/order becomes an organized row in Google Sheets or Excel instantly (name/phone/address/product); cleans numbers and addresses; alerts on missing data; links with CRM and existing sheets.
+
+--- Process (4 steps) ---
+1) 30-minute call to learn the business, products, prices, style.
+2) Build and train the agent; client reviews replies pre-launch.
+3) Connect all channels in one day.
+4) 24/7 operation with daily reports and weekly tuning.
+
+--- Plans ---
+- Launch: 1 agent (reply or confirm) + 2 channels + up to 1,000 chats/month + Google Sheet logging.
+- Growth (most popular): 3 agents + all channels/comments + up to 10,000 chats/month + reports + weekly tuning + priority WhatsApp support.
+- Business: custom agents + CRM/API links + unlimited chats + account manager.
+
+--- Prices (edit the numbers here yourself) ---
+- Launch setup price: [not set yet — ask on WhatsApp].
+- Growth setup price: [not set yet — ask on WhatsApp].
+- Business plan: custom quote per needs.
+- Monthly fee: set per plan and usage volume.
+- Rule: never state any number not written here. If asked about a missing price, say quotes are custom per volume and point to WhatsApp or the "Build Your Agent" page.
+
+--- Payment & terms ---
+- 50% upfront before any work + 50% on delivery and pilot. Upfront non-refundable once work has begun.
+- Monthly fee paid in full at each month start (days 1–5), covering AI API, maintenance, hosting. Delays may pause the agent after a 48-hour notice.
+- All-month maintenance: 24/7 monitoring, weekly tuning, price updates within 48 business hours, free connection fixes, monthly report, priority support.
+- Confidentiality is a red line: never disclose client secrets; team signs NDAs.
+
+--- Numbers ---
+- 2,400+ chats daily, 98% satisfaction, 3-second average reply, +40% order confirmations.
+
+--- Demo & contact ---
+- Free 30-minute live demo on the customer's own products + one-week trial on their channels, no credit card.
+- Email: hello@agenza.ai — WhatsApp via contact button — working daily except Friday.
+- "Build Your Agent" page: 5 steps (business/agents/channels/dialect/details) and a custom WhatsApp quote.

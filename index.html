@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AGENZA — وكلاء ذكاء اصطناعي بيردّوا كأنهم بشر</title>
+<meta name="description" content="AGENZA — شركة برمجيات بتنشئ وكلاء ذكاء اصطناعي يردوا على عملائك في كل وسائل التواصل والكومنتات كأنهم بشر، يأكدوا الأوردرات ويدخلوا البيانات على جوجل شيت وإكسل." />
+<link rel="icon" type="image/png" href="logo/agenza-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="loader-inner">
+    <img src="logo/agenza-logo.png" alt="AGENZA" />
+    <div class="loader-bar"><span></span></div>
+    <p>جاري تجهيز وكلائك الأذكياء…</p>
+  </div>
+</div>
+
+<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-overlay"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">
+      <img src="logo/agenza-logo.png" alt="AGENZA logo" />
+      <span class="brand-text">AGENZA<small>AI AGENTS</small></span>
+    </a>
+    <nav class="links">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#services">الوكلاء</a>
+      <a href="about.html">من نحن</a>
+      <a href="builder.html">ابني وكيلك</a>
+      <a href="policy.html">السياسات</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="langToggle" title="Switch to English">EN</button>
+      <a href="#contact" class="btn btn-primary btn-sm">احجز ديمو مجاني</a>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">الرئيسية</a>
+    <a href="index.html#services">الوكلاء</a>
+    <a href="about.html">من نحن</a>
+    <a href="builder.html">ابني وكيلك</a>
+    <a href="policy.html">السياسات والشروط</a>
+    <a href="#contact">احجز ديمو</a>
+    <a class="langToggle" href="index-en.html">EN</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero container" id="hero">
+  <div class="hero-copy">
+    <div class="badge pulse-dot"><span class="dot"></span> وكلاء AI شغالين 24/7 — بيردّوا كأنهم بشر بالظبط</div>
+    <h1>عميلك مش هيعرف<br />إنه بيكلم <span class="grad">ذكاء اصطناعي.</span><br /><span class="outline">وهو ده المطلوب.</span></h1>
+    <p class="lead">AGENZA بتبني لك وكلاء أذكياء يردّوا على الرسائل والكومنتات في كل المنصات، يأكّدوا الأوردرات على واتساب وإيميل، ويسجّلوا كل حاجة على Google Sheets وإكسل — من غير ما ترفع إيدك.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary glow">ابني الوكيل بتاعي ←</a>
+      <a href="#demo" class="btn btn-ghost">▶ شوف محادثة حقيقية</a>
+    </div>
+    <div class="hero-meta">
+      <div class="avatars"><span>م</span><span>س</span><span>ك</span><span>+</span></div>
+      <div><strong>+2,400 محادثة يومياً</strong><small>بتتم عبر وكلاء AGENZA بلهجات عربية طبيعية</small></div>
+    </div>
+    <div class="mini-stats">
+      <div><b data-count="3">0</b><span>ثواني متوسط الرد</span></div>
+      <div><b><span data-count="98">0</span>%</b><span>رضا العملاء</span></div>
+      <div><b><span data-count="40">0</span>%+</b><span>زيادة تأكيد الأوردرات</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="phone-wrap tilt">
+      <div class="phone-glow"></div>
+      <div class="chat-card">
+        <div class="chat-head">
+          <img src="logo/agenza-logo-bg.png" alt="" />
+          <div><strong>وكيل AGENZA — متجر Sneakers</strong><small><i></i> متصل الآن • بيرد خلال ثواني</small></div>
+          <div class="chat-icons">● ● ●</div>
+        </div>
+        <div class="chat-body" id="heroChat"></div>
+        <div class="chat-input"><span>اكتب رسالة…</span><button>➤</button></div>
+      </div>
+      <div class="float-card fc-1">
+        <div class="fc-icon">✔</div>
+        <div><strong>تم تأكيد أوردر #4821</strong><small>واتساب • من 42 ثانية</small></div>
+      </div>
+      <div class="float-card fc-2">
+        <div class="fc-icon sheet">◫</div>
+        <div><strong>اتسجل في Google Sheets</strong><small>الاسم + العنوان + التليفون</small></div>
+      </div>
+      <div class="float-card fc-3">
+        <div class="stars">★★★★★</div>
+        <div><strong>“فكرته أدمن شاطر!”</strong><small>— تعليق عميل فعلي</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" dir="ltr">
+  <div class="marquee" id="marquee">
+    <div class="mq-group">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+    <div class="mq-group" aria-hidden="true">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+    <div class="mq-group" aria-hidden="true">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+    <div class="mq-group" aria-hidden="true">
+      <span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i><span>Instagram DMs</span><i>✦</i><span>Facebook Comments</span><i>✦</i><span>TikTok Comments</span><i>✦</i><span>Email</span><i>✦</i><span>Google Sheets</span><i>✦</i><span>Excel</span><i>✦</i>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section container" id="services">
+  <div class="sec-head reveal">
+    <small>// أسطول الوكلاء بتاعك</small>
+    <h2>3 وكلاء. <span class="grad">بيشيلوا البيزنس كله.</span></h2>
+    <p>مش بوت بيقول “أهلاً بك، اختر من القائمة”. وكلاء AGENZA بيفهموا السياق، بيهزروا لما ينفع، وبيقفلوا الديل لما لازم.</p>
+  </div>
+  <div class="cards3">
+    <article class="card reveal">
+      <div class="card-top"><div class="icon">💬</div><span class="tag">الأكثر طلباً</span></div>
+      <h3>وكيل الرد الذكي</h3>
+      <p>يرد على رسائل واتساب، ماسنجر، إنستجرام، تيك توك — والكومنتات نفسها — بنفس أسلوب فريقك ولهجتك، من غير ما يبان إنه AI.</p>
+      <ul>
+        <li>رد بشري بالعامية أو الفصحى حسب عميلك</li>
+        <li>رد على الكومنت + تحويله لرسالة خاصة تلقائياً</li>
+        <li>فهم الصور والأسعار والاستفسارات المعقدة</li>
+        <li>تصعيد ذكي للموظف البشري عند اللزوم</li>
+      </ul>
+      <div class="mock mini-chat"><span class="m-user">بكام الشحن لإسكندرية؟ 🤔</span><span class="m-ai">أهلاً بيك يا فندم 😊 الشحن لإسكندرية 60 جنيه وبيوصل خلال 2-3 أيام.. تحب أأكدلك الأوردر؟</span></div>
+    </article>
+    <article class="card featured reveal">
+      <div class="card-top"><div class="icon">📦</div><span class="tag hot">بيقفّل مبيعات</span></div>
+      <h3>وكيل تأكيد الأوردرات</h3>
+      <p>يكلم العميل على واتساب أو إيميل بعد الطلب، يأكد العنوان والتليفون، يقلل المرتجعات، ويرجع العميل المتردد.</p>
+      <ul>
+        <li>مكالمة نصية ذكية بعد كل أوردر جديد</li>
+        <li>تأكيد: الاسم، العنوان، الكمية، الكاش / فيزا</li>
+        <li>متابعة تلقائية للأوردرات المعلّقة والسلال المتروكة</li>
+        <li>تقرير يومي: مؤكد / ملغي / لم يرد</li>
+      </ul>
+      <div class="mock order"><div><b>Order #4821 — مؤكد ✔</b><small>واتساب • تم التأكيد في 1:24 دقيقة</small></div><em>98%</em></div>
+    </article>
+    <article class="card reveal">
+      <div class="card-top"><div class="icon">📊</div><span class="tag">بدون أخطاء</span></div>
+      <h3>وكيل إدخال البيانات</h3>
+      <p>أي محادثة أو أوردر بيتحوّل وحده لصف منظّم في Google Sheets أو Excel — من غير كوبي بيست ولا غلطات.</p>
+      <ul>
+        <li>تسجيل لحظي: الاسم، التليفون، العنوان، المنتج</li>
+        <li>تنظيف وتوحيد الأرقام والعناوين تلقائياً</li>
+        <li>ربط مع CRM وشيتاتك الحالية</li>
+        <li>تنبيه فوري عند داتا ناقصة أو رقم غلط</li>
+      </ul>
+      <div class="mock sheet-mock"><span></span><span></span><span class="on"></span><span></span><span class="on"></span><span></span><span></span><span class="on"></span><span></span></div>
+    </article>
+  </div>
+
+  <div class="compare reveal">
+    <div class="cmp-head"><span>البوت التقليدي 🤖</span><span class="agenza">وكيل AGENZA ✦</span><span>موظف بشري 🧑‍💼</span></div>
+    <div class="cmp-row"><span>بيرد بقوالب محفوظة</span><strong class="agenza">بيرد كأنه واحد من فريقك</strong><span>بيرد كويس بس بينام 😴</span></div>
+    <div class="cmp-row"><span>بيضيع الكومنتات</span><strong class="agenza">بيرد على الكومنت ويحوّله لأوردر</strong><span>مش ملاحق على الكومنتات</span></div>
+    <div class="cmp-row"><span>—</span><strong class="agenza">بيأكد الأوردر + يسجّله في شيت</strong><span>بينسى يسجّل أحياناً</span></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="sec-head reveal">
+      <small>// من الصفر للتشغيل</small>
+      <h2>تشتغل في <span class="grad">4 خطوات بس.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><em>01</em><h4>نفهم البيزنس بتاعك</h4><p>مكالمة 30 دقيقة: منتجاتك، أسعارك، أسئلتك المتكررة، وأسلوب كلامك مع العملاء.</p></div>
+      <div class="step reveal"><em>02</em><h4>نبني الوكيل على مزاجك</h4><p>ندرّبه على داتاك ومنتجاتك ولهجتك — مصري، خليجي، فصحى — وتراجع الردود قبل الإطلاق.</p></div>
+      <div class="step reveal"><em>03</em><h4>نوصّله بكل قنواتك</h4><p>واتساب، فيسبوك، إنستجرام، تيك توك، إيميل، + Google Sheets وإكسل. كله في يوم واحد.</p></div>
+      <div class="step reveal"><em>04</em><h4>يشتغل وانت بتتفرج</h4><p>رد فوري 24/7، تأكيد أوردرات، وتقارير يومية. وكل أسبوع بنحسّن أداءه.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="section container" id="demo">
+  <div class="sec-head reveal">
+    <small>// جرّب بنفسك</small>
+    <h2>دوس على أي وكيل <span class="grad">واتفرج عليه وهو شغال.</span></h2>
+  </div>
+  <div class="demo-tabs reveal">
+    <button class="active" data-tab="reply">💬 وكيل الرد</button>
+    <button data-tab="order">📦 وكيل الأوردرات</button>
+    <button data-tab="sheet">📊 وكيل الشيتات</button>
+  </div>
+  <div class="demo-box reveal">
+    <div class="demo-chat" id="demoChat"></div>
+    <div class="demo-side">
+      <h4 id="demoTitle">وكيل الرد الذكي</h4>
+      <p id="demoDesc">بيرد على الكومنتات والرسائل كأنه أدمن حقيقي.</p>
+      <div class="demo-log" id="demoLog"></div>
+      <button class="btn btn-primary btn-sm" id="replayDemo">↻ إعادة المحاكاة</button>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="section container" id="integrations">
+  <div class="sec-head reveal">
+    <small>// بيشتغل مكان ما عملائك موجودين</small>
+    <h2>تكامل كامل <span class="grad">مع أدواتك.</span></h2>
+  </div>
+  <div class="integ-grid">
+    <div class="integ reveal"><i>🟢</i><b>WhatsApp Business</b><small>رد + تأكيد أوردرات</small></div>
+    <div class="integ reveal"><i>💙</i><b>Messenger</b><small>رد فوري 24/7</small></div>
+    <div class="integ reveal"><i>📸</i><b>Instagram</b><small>DMs + كومنتات + ستوري</small></div>
+    <div class="integ reveal"><i>👍</i><b>Facebook Comments</b><small>رد + تحويل لخاص</small></div>
+    <div class="integ reveal"><i>🎵</i><b>TikTok</b><small>كومنتات ورسائل</small></div>
+    <div class="integ reveal"><i>✉️</i><b>Email</b><small>تأكيد ومتابعة</small></div>
+    <div class="integ reveal"><i>📗</i><b>Google Sheets</b><small>تسجيل لحظي</small></div>
+    <div class="integ reveal"><i>📊</i><b>Excel</b><small>تقارير منظمة</small></div>
+  </div>
+  <div class="quote-strip reveal">
+    <p>“كنا بنرد بعد 3 ساعات… دلوقتي العميل بياخد رد في 3 ثواني، ومبيعات الكومنتات زادت <b>3 أضعاف</b>.”</p>
+    <small>— مدير متجر أزياء، عميل AGENZA ★★★★★</small>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section container" id="pricing">
+  <div class="sec-head reveal">
+    <small>// باقات مرنة</small>
+    <h2>ادفع على قد <span class="grad">شغلك.</span></h2>
+    <p>كل الباقات تشمل: رد بشري الإحساس، ربط القنوات، وتدريب على منتجاتك.</p>
+  </div>
+  <div class="pricing">
+    <div class="price reveal"><h4>الانطلاقة</h4><div class="p-num">—<small>/ شهرياً</small></div><ul><li>✔ وكيل واحد (رد أو تأكيد)</li><li>✔ قناتان (مثلاً واتساب + فيسبوك)</li><li>✔ حتى 1,000 محادثة / شهر</li><li>✔ تسجيل في Google Sheet</li></ul><a href="#contact" class="btn btn-ghost">ابدأ الآن</a></div>
+    <div class="price pro reveal"><span class="tag hot">الأكثر مبيعاً</span><h4>النمو</h4><div class="p-num">—<small>/ شهرياً</small></div><ul><li>✔ 3 وكلاء (رد + أوردرات + شيت)</li><li>✔ كل القنوات + الكومنتات</li><li>✔ حتى 10,000 محادثة / شهر</li><li>✔ تقارير + تحسين أسبوعي</li><li>✔ دعم أولوية واتساب</li></ul><a href="#contact" class="btn btn-primary">احجز ديمو</a></div>
+    <div class="price reveal"><h4>الشركات</h4><div class="p-num">Custom</div><ul><li>✔ وكلاء مخصصين متعددين</li><li>✔ ربط CRM / API / Excel داخلي</li><li>✔ محادثات غير محدودة</li><li>✔ مدير حساب + SLA</li></ul><a href="#contact" class="btn btn-ghost">كلّمنا</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section container" id="faq">
+  <div class="sec-head reveal"><small>// عندك سؤال؟</small><h2>الأسئلة <span class="grad">الشائعة.</span></h2></div>
+  <div class="faq">
+    <details open class="reveal"><summary>العميل هيعرف إنه بيكلم AI؟</summary><p>لا — وده سر شغلنا. الوكيل بيرد بنفس لهجتك وأسلوبك، بيفهم السياق والنكتة والزعل، وبيغلطش الغلطات الروبوتية بتاعة البوتات التقليدية. أغلب عملائنا عملاؤهم فاكرينه موظف جديد شاطر.</p></details>
+    <details class="reveal"><summary>بيرد على الكومنتات فعلاً؟</summary><p>أيوه. بيراقب كومنتات فيسبوك وإنستجرام وتيك توك لحظة بلحظة، يرد عليها علناً بشكل بشري، ولو فيها نية شراء يحوّل العميل لرسالة خاصة ويكمّل معاه لحد الأوردر.</p></details>
+    <details class="reveal"><summary>إزاي بيأكد الأوردر؟</summary><p>أول ما الأوردر يدخل، الوكيل يبعت واتساب أو إيميل للعميل، يتأكد من الاسم والعنوان والتليفون وطريقة الدفع، ويسجّل الحالة (مؤكد / ملغي / لم يرد) ويرجع يتابعه لو مردّش.</p></details>
+    <details class="reveal"><summary>الداتا بتتسجل فين؟</summary><p>في Google Sheets أو Excel بتاعك مباشرة وبشكل لحظي — كل محادثة = صف منظم. وبننضّف الأرقام والعناوين وننبهك لو حاجة ناقصة.</p></details>
+    <details class="reveal"><summary>بيتكلم مصري؟</summary><p>مصري، خليجي، شامي، فصحى — وبيبدّل حسب العميل اللي قدامه. ولو عندك مصطلحات خاصة بمنتجك بندرّبه عليها.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section container" id="contact">
+  <div class="contact-box reveal">
+    <div class="c-copy">
+      <small>// جاهز تنام والوكيل شغال؟</small>
+      <h2>خلّي <span class="grad">AGENZA</span><br />ترد مكانك من بكرة.</h2>
+      <p>سيب بياناتك وهنكلمك في نفس اليوم بديمو لايف على منتجاتك انت — مش عرض مسجّل.</p>
+      <ul class="c-points"><li>✔ ديمو مجاني 30 دقيقة</li><li>✔ تجربة أسبوع على قنواتك</li><li>✔ بدون كارت بنكي</li></ul>
+      <div class="c-direct">
+        <a href="#" class="btn btn-primary">💬 واتساب مباشر</a>
+        <a href="mailto:hello@agenza.ai" class="btn btn-ghost">hello@agenza.ai</a>
+      </div>
+    </div>
+    <form class="c-form" id="leadForm">
+      <label>اسمك<input required name="name" placeholder="مثال: أحمد سمير" /></label>
+      <label>رقم الواتساب<input required name="phone" placeholder="01xxxxxxxxx" /></label>
+      <label>نوع البيزنس
+        <select name="biz"><option>متجر أونلاين / E-commerce</option><option>مطعم / كافيه</option><option>عيادة / مركز تجميل</option><option>عقارات</option><option>خدمات / أخرى</option></select>
+      </label>
+      <label>إيه أكتر حاجة محتاجها؟<textarea name="msg" rows="3" placeholder="مثال: الرد على كومنتات تيك توك وتأكيد الأوردرات على واتساب…"></textarea></label>
+      <button class="btn btn-primary glow" type="submit">ابعت وابني وكيلي ←</button>
+      <small class="form-note" id="formNote">بالضغط على إرسال انت موافق نتواصل معاك واتساب أو إيميل.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="f-brand"><img src="logo/agenza-logo.png" alt="AGENZA" /><p>وكلاء ذكاء اصطناعي بيردّوا، بيأكّدوا، وبيسجّلوا — كأنهم بشر، بس مابيناموش.</p></div>
+    <div><b>الوكلاء</b><a href="#services">وكيل الرد</a><a href="#services">وكيل الأوردرات</a><a href="#services">وكيل الشيتات</a></div>
+    <div><b>الشركة</b><a href="#how">إزاي بنشتغل</a><a href="#pricing">الباقات</a><a href="policy.html">السياسة والشروط</a><a href="#contact">تواصل</a></div>
+    <div><b>تواصل</b><a href="mailto:hello@agenza.ai">hello@agenza.ai</a><a href="#">WhatsApp</a><a href="#">LinkedIn</a></div>
+  </div>
+  <div class="copy">© 2026 AGENZA — All rights reserved. صُنع بشغف في مصر. • <a href="policy.html" style="color:var(--cyan)">سياسة الخصوصية وشروط التعامل</a></div>
+</footer>
+
+<a href="#contact" class="sticky-cta">ابني وكيلي ←</a>
+
+<a class="wa-float" href="https://wa.me/201000000000?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20AGENZA" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<script src="script.js?v=2"></script>
+<script src="agent-widget.js?v=3"></script>
+</body>
+</html>

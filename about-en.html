@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us — AGENZA</title>
+<meta name="description" content="Meet AGENZA — an Egyptian software company building AI agents that reply like humans." />
+<link rel="icon" type="image/png" href="logo/agenza-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=3" />
+<style>
+.about-hero{padding:70px 0 20px;text-align:center}
+.about-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.5}
+.about-hero p{color:var(--muted);max-width:64ch;margin:12px auto 0;font-size:1.05rem}
+.about-hero .logo-big{width:130px;margin:0 auto 10px;display:block;filter:drop-shadow(0 0 35px rgba(56,225,255,.55))}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:30px 0}
+.story-card{background:var(--card);border:1px solid var(--stroke);border-radius:20px;padding:30px;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.story-card::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.55}
+.story-card h2{font-size:1.4rem;margin-bottom:10px}
+.story-card h2 span{color:var(--cyan)}
+.story-card p,.story-card li{color:#c6d6e2;font-size:.95rem}
+.story-card ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.story-card ul li{padding-inline-start:24px;position:relative}
+.story-card ul li::before{content:'✦';position:absolute;inset-inline-start:0;color:var(--cyan)}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:10px 0 20px}
+.value{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:24px 20px;text-align:center;transition:.3s}
+.value:hover{transform:translateY(-5px);border-color:var(--cyan)}
+.value i{font-style:normal;font-size:2rem}
+.value b{display:block;margin:10px 0 4px;font-size:1.05rem}
+.value small{color:var(--muted);font-size:.85rem}
+.timeline{display:flex;flex-direction:column;gap:0;max-width:760px;margin:10px auto 0;position:relative}
+.timeline::before{content:'';position:absolute;top:10px;bottom:10px;inset-inline-start:19px;width:2px;background:linear-gradient(180deg,var(--cyan),transparent)}
+.t-item{display:flex;gap:16px;padding:14px 0}
+.t-dot{width:40px;height:40px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#0b2a3c;border:1px solid var(--cyan);font-weight:900;color:var(--cyan);z-index:1}
+.t-body{background:var(--card);border:1px solid var(--stroke);border-radius:14px;padding:14px 18px;flex:1}
+.t-body b{display:block}
+.t-body small{color:var(--muted)}
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:20px 0 10px}
+.num{background:linear-gradient(180deg,rgba(22,58,82,.85),rgba(10,24,36,.9));border:1px solid rgba(56,225,255,.35);border-radius:18px;padding:24px;text-align:center}
+.num b{font-family:'Space Grotesk';font-size:2.2rem;color:var(--cyan);display:block;line-height:1.2}
+.num small{color:var(--muted)}
+.cta-band{margin:30px 0 70px;text-align:center;background:linear-gradient(135deg,rgba(56,225,255,.13),rgba(14,127,184,.08));border:1px solid var(--stroke);border-radius:24px;padding:44px 24px}
+.cta-band h2{font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:900}
+.cta-band p{color:var(--muted);margin:10px 0 20px}
+.cta-band .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media(max-width:900px){.story{grid-template-columns:1fr}.values,.numbers{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="loader-inner">
+    <img src="logo/agenza-logo.png" alt="AGENZA" />
+    <div class="loader-bar"><span></span></div>
+    <p>Welcome to the world of AGENZA…</p>
+  </div>
+</div>
+
+<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index-en.html" class="brand">
+      <img src="logo/agenza-logo.png" alt="AGENZA logo" />
+      <span class="brand-text">AGENZA<small>AI AGENTS</small></span>
+    </a>
+    <nav class="links">
+      <a href="index-en.html">Home</a>
+      <a href="about-en.html">About</a>
+      <a href="builder-en.html">Build Your Agent</a>
+      <a href="policy-en.html">Policies</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="langToggle" title="التبديل للعربية">AR</button>
+      <a href="builder-en.html" class="btn btn-primary btn-sm">Build My Agent →</a>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index-en.html">Home</a>
+    <a href="about-en.html">About</a>
+    <a href="builder-en.html">Build Your Agent</a>
+    <a href="policy-en.html">Policies</a>
+    <a href="index-en.html#contact">Book a Demo</a>
+    <a class="langToggle" href="about.html">AR</a>
+  </div>
+</header>
+
+<main>
+  <section class="container about-hero">
+    <img class="logo-big" src="logo/agenza-logo.png" alt="AGENZA" />
+    <div class="badge pulse-dot"><span class="dot"></span> An Egyptian software company — AI agent specialists</div>
+    <h1>We are <span class="grad">AGENZA.</span><br />We make technology speak <span class="outline">human.</span></h1>
+    <p>We started with a simple question: why should a customer feel they're talking to a cold robot? So we built AI agents that reply to messages and comments, confirm orders, and log data — with your team's spirit, but without ever getting tired or sleeping.</p>
+  </section>
+
+  <section class="container story">
+    <div class="story-card">
+      <h2>Our story <span>// where we came from</span></h2>
+      <p>AGENZA was born from the heart of the Egyptian market — from online stores losing customers because replies took 3 hours, and from comments full of buying intent that nobody answered. We tried traditional bots and watched them drive customers away with saved templates.</p>
+      <p style="margin-top:10px">So we built something different: a smart agent trained on your products, your dialect and your style — one that tells an excited customer apart from a hesitant or upset one, and acts right with each.</p>
+    </div>
+    <div class="story-card">
+      <h2>Our mission <span>// where we're going</span></h2>
+      <ul>
+        <li>Every Arab business gets a sales + support team working 24/7 for the cost of one employee.</li>
+        <li>No delayed message, no lost comment, no wrongly logged order.</li>
+        <li>Technology that serves the business invisibly — the customer just feels understood.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="sec-head">
+      <small>// Values we never compromise</small>
+      <h2>4 principles <span class="grad">that drive us daily.</span></h2>
+    </div>
+    <div class="values">
+      <div class="value"><i>🔒</i><b>Confidentiality first</b><small>Our clients' secrets are a red line — never shared</small></div>
+      <div class="value"><i>🗣️</i><b>Human feel</b><small>The agent must talk like your team, not a robot</small></div>
+      <div class="value"><i>⚡</i><b>Speed = sales</b><small>A reply in seconds turns inquiries into orders</small></div>
+      <div class="value"><i>📊</i><b>Data accuracy</b><small>Every chat logged correctly, zero errors</small></div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="numbers">
+      <div class="num"><b><span data-count="2400">0</span>+</b><small>Chats daily via our agents</small></div>
+      <div class="num"><b><span data-count="98">0</span>%</b><small>Customer satisfaction</small></div>
+      <div class="num"><b><span data-count="3">0</span> s</b><small>Average reply time</small></div>
+      <div class="num"><b><span data-count="40">0</span>%+</b><small>More confirmed orders</small></div>
+    </div>
+  </section>
+
+  <section class="container" style="padding:30px 0">
+    <div class="sec-head">
+      <small>// Our journey in short</small>
+      <h2>How we <span class="grad">grew.</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-dot">1</div><div class="t-body"><b>The start — Smart Reply Agent</b><small>Our first agent replying to social messages and comments in the customer's dialect.</small></div></div>
+      <div class="t-item"><div class="t-dot">2</div><div class="t-body"><b>Order Confirmation Agent</b><small>Automatic confirmation via WhatsApp and email to cut returns and abandoned carts.</small></div></div>
+      <div class="t-item"><div class="t-dot">3</div><div class="t-body"><b>Data Entry Agent</b><small>Every chat linked to Google Sheets and Excel — goodbye copy-paste.</small></div></div>
+      <div class="t-item"><div class="t-dot">✦</div><div class="t-body"><b>Today — a full fleet</b><small>3 integrated agents + monthly maintenance + continuous tuning per client.</small></div></div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="cta-band">
+      <h2>Want to know us better? <span class="grad">Build your agent yourself.</span></h2>
+      <p>Pick the agents, channels and dialect — and we'll send you a custom quote within working hours.</p>
+      <div class="row">
+        <a href="builder-en.html" class="btn btn-primary glow">Build Your Agent Now →</a>
+        <a href="index-en.html#contact" class="btn btn-ghost">Book a Free Demo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="f-brand"><img src="logo/agenza-logo.png" alt="AGENZA" /><p>AI agents that reply, confirm and log — like humans, but they never sleep.</p></div>
+    <div><b>Pages</b><a href="index-en.html">Home</a><a href="about-en.html">About</a><a href="builder-en.html">Build Your Agent</a><a href="policy-en.html">Policies</a></div>
+    <div><b>Agents</b><a href="index-en.html#services">Reply agent</a><a href="index-en.html#services">Orders agent</a><a href="index-en.html#services">Sheets agent</a></div>
+    <div><b>Contact</b><a href="mailto:hello@agenza.ai">hello@agenza.ai</a><a href="#">WhatsApp</a><a href="#">LinkedIn</a></div>
+  </div>
+  <div class="copy">© 2026 AGENZA — All rights reserved. Made with passion in Egypt. • <a href="policy-en.html" style="color:var(--cyan)">Privacy Policy &amp; Terms</a></div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/201000000000?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20AGENZA" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<script src="script.js?v=2"></script>
+<script src="agent-widget.js?v=3"></script>
+</body>
+</html>
